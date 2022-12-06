@@ -2,8 +2,8 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Hutch Rhees - Service
+* Hutch Rhees - Services
+* Suk Chung - Sales
 
 ## Design
 
