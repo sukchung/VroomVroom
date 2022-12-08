@@ -1,3 +1,6 @@
+sales/poll/sales_project
+sales/poll/sales_rest
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
