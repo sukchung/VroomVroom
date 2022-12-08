@@ -22,15 +22,6 @@ function Nav() {
                 <NavLink className="dropdown-item" to="/manufacturers/new/">Create a Manufacturer</NavLink>
               </div>
             </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Salespersons
-              </a>
-              <div className="dropdown-menu">
-                {/* <NavLink className="dropdown-item" to="/salespersons/">List of Salespersons</NavLink>
-                <NavLink className="dropdown-item" to="/salespersons/new/">Create a Salesperson</NavLink> */}
-              </div>
-            </li>
           </ul>
         </div>
       </div>
