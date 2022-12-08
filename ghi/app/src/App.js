@@ -3,6 +3,7 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import ManufacturerForm from './Inventory/ManufacturerForm';
 import ManufacturerList from './Inventory/ManufacturerList';
+import SalesPersonForm from './Sales/SalesPersonForm';
 
 function App(props) {
   return (
@@ -15,6 +16,10 @@ function App(props) {
             <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
             <Route path="new" element={<ManufacturerForm />} />
           </Route>
+          {/* <Route path="salespersons">
+            <Route index element={<SalesPersonsList salespersons={props.salespersons} />} />
+            <Route path="new" element={<SalesPersonForm />} />
+          </Route> */}
         </Routes>
       </div>
     </BrowserRouter>
