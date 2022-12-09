@@ -21,8 +21,8 @@ class SalesRecordForm extends React.Component {
         const salesPersonUrl = "http://localhost:8090/api/salespersons/";
         const customerUrl = "http://localhost:8090/api/customers/";
         const soldAutoUrl = "http://localhost:8090/api/saleshistory";
+        
         const automobileResponse = await fetch(automobileUrl);
-
         const salesPersonResponse = await fetch(salesPersonUrl);
         const customerResponse = await fetch(customerUrl);
         const soldAutoResponse = await fetch(soldAutoUrl);

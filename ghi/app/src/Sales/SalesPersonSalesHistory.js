@@ -23,7 +23,7 @@ class SalesPersonSalesHistory extends React.Component {
 
             this.setState({
                 salespersons: salesPersonsData.salespersons,
-                sales_history: salesHistoryData.sales_history
+                sales_history: salesHistoryData.sales_history,
             });
         }
     }
@@ -87,12 +87,12 @@ class SalesPersonSalesHistory extends React.Component {
                                 <tbody>
                                     {this.state.sales_history.filter(saleRecord => saleRecord.salesperson.id.toString() === this.state.salesperson).map(saleRecord => {
                                         return (
-                                            <tr key={ saleRecord.id }>
-                                                <td>{ saleRecord.salesperson.name }</td>
-                                                <td>{ saleRecord.salesperson.employee_number }</td>
-                                                <td>{ saleRecord.customer.name }</td>
-                                                <td>{ saleRecord.automobile.vin }</td>
-                                                <td>${ saleRecord.sale_price.toLocaleString() }</td>
+                                            <tr key={saleRecord.id}>
+                                                <td>{saleRecord.salesperson.name}</td>
+                                                <td>{saleRecord.salesperson.employee_number}</td>
+                                                <td>{saleRecord.customer.name}</td>
+                                                <td>{saleRecord.automobile.vin}</td>
+                                                <td>${saleRecord.sale_price.toLocaleString()}</td>
                                             </tr>
                                         );
                                     })}

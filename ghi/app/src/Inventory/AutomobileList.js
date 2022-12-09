@@ -15,6 +15,10 @@ export default function AutomobileList(props) {
 
     return (
         <>
+            <br />
+            <div>
+                <h1>Automobiles</h1>
+            </div>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -23,7 +27,6 @@ export default function AutomobileList(props) {
                         <th>Year</th>
                         <th>Model</th>
                         <th>Manufacturer</th>
-                        {/* <th>Delete Automobile</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +38,6 @@ export default function AutomobileList(props) {
                                 <td>{automobile.year}</td>
                                 <td>{automobile.model.name}</td>
                                 <td>{automobile.model.manufacturer.name}</td>
-                                {/* <td><button className="btn btn-primary" onClick={deleteAutomobile(automobile.vin)}>Delete</button></td> */}
                             </tr>
                         );
                     })}

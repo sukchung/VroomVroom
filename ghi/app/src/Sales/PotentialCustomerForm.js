@@ -6,7 +6,7 @@ class PotentialCustomerForm extends React.Component {
         this.state = {
             name: "",
             address: "",
-            phone_number: ""
+            phone_number: "",
         }
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleAddressChange = this.handleAddressChange.bind(this);

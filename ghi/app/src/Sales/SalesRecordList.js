@@ -15,6 +15,10 @@ export default function SalesRecordList(props) {
 
     return (
         <>
+            <br />
+            <div>
+                <h1>Sales Records</h1>
+            </div>
             <table className="table table-striped">
                 <thead>
                     <tr>

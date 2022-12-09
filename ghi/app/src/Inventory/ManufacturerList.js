@@ -13,27 +13,16 @@ export default function ManufacturerList(props) {
     }
     useEffect(() => { getManufacturers() }, []);
 
-    // const deleteManufacturer = (id) => async () => {
-    //     try {
-    //         const url = `http://localhost:8100/api/manufacturers/${id}/`;
-    //         const deleteResponse = await fetch(url, { method: "delete" });
-
-    //         if (deleteResponse.ok) {
-    //             const reloadResponse = await fetch("http://localhost:8100/api/manufacturers/");
-    //             const newManufacturers = await reloadResponse.json();
-    //             setManufacturers(newManufacturers.manufacturers);
-    //         }
-    //     }
-    //     catch (e) { }
-    // }
-
     return (
         <>
+            <br />
+            <div>
+                <h1>Manufacturers</h1>
+            </div>
             <table className="table table-striped">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        {/* <th>Delete Manufacturer</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +30,6 @@ export default function ManufacturerList(props) {
                         return (
                             <tr key={manufacturer.id}>
                                 <td>{manufacturer.name}</td>
-                                {/* <td><button className="btn btn-primary" onClick={deleteManufacturer(manufacturer.id)}>Delete</button></td> */}
                             </tr>
                         );
                     })}
