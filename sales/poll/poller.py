@@ -17,10 +17,10 @@ def get_automobiles():
     content = json.loads(response.content)
 
     for automobile in content["autos"]:
-        print(automobile)
         AutomobileVO.objects.update_or_create(
             vin = automobile["vin"]
         )
+
 
 def poll():
     while True:
