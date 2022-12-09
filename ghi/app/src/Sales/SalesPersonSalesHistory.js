@@ -12,25 +12,45 @@ class SalesPersonSalesHistory extends React.Component {
 
     async componentDidMount() {
         const salesPersonsUrl = "http://localhost:8090/api/salespersons/";
-        const salesPersonsResponse = await fetch(salesPersonsUrl);
-
-        if (salesPersonsResponse.ok) {
-            const data = await salesPersonsResponse.json();
-            this.setState({ salespersons: data.salespersons });
-        }
-
         const salesHistoryUrl = "http://localhost:8090/api/saleshistory/";
+
+        const salesPersonsResponse = await fetch(salesPersonsUrl);
         const salesHistoryResponse = await fetch(salesHistoryUrl);
 
-        if (salesHistoryResponse.ok) {
-            const data = await salesHistoryResponse.json();
-            this.setState({ sales_history: data.sales_history });
+        if (salesPersonsResponse.ok && salesHistoryResponse.ok) {
+            const salesPersonsData = await salesPersonsResponse.json();
+            const salesHistoryData = await salesHistoryResponse.json();
+
+            this.setState({
+                salespersons: salesPersonsData.salespersons,
+                sales_history: salesHistoryData.sales_history
+            });
         }
     }
 
     handleSalesPersonChange(event) {
         const value = event.target.value;
         this.setState({ salesperson: value });
+    }
+
+    async getSalesPersons() {
+        const salesPersonsUrl = "http://localhost:8090/api/salespersons/";
+        const salesPersonsResponse = await fetch(salesPersonsUrl);
+
+        if (salesPersonsResponse.ok) {
+            const salesPersonsData = await salesPersonsResponse.json();
+            this.setState({ salespersons: salesPersonsData.salesperson });
+        }
+    }
+
+    async getSalesHistory() {
+        const salesHistoryUrl = "http://localhost:8090/api/saleshistory/";
+        const salesHistoryResponse = await fetch(salesHistoryUrl);
+
+        if (salesHistoryResponse.ok) {
+            const salesHistoryData = await salesHistoryResponse.json();
+            this.setState({ sales_history: salesHistoryData.sales_history });
+        }
     }
 
     render() {
@@ -41,13 +61,13 @@ class SalesPersonSalesHistory extends React.Component {
                         <h1>Salesperson History</h1>
                         <div className="mb-3">
                             <select onChange={this.handleSalesPersonChange} required name="salesperson"
-                                id="salesperson" value={this.state.salesperson}
+                                id="salesperson" value={this.state.salesPerson}
                                 className="form-select">
                                 <option value="">Choose a salesperson</option>
                                 {this.state.salespersons.map(salesperson => {
                                     return (
                                         <option key={salesperson.id} value={salesperson.id}>
-                                            {salesperson.name.charAt(0).toUpperCase() + salesperson.name.slice(1)}
+                                            {salesperson.name.charAt(0).toUpperCase() + salesperson.name.slice(1)} ({salesperson.employee_number})
                                         </option>
                                     );
                                 })}
@@ -65,16 +85,16 @@ class SalesPersonSalesHistory extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {this.state.sales_history.map(sale => {
+                                    {this.state.sales_history.filter(saleRecord => saleRecord.salesperson.id.toString() === this.state.salesperson).map(saleRecord => {
                                         return (
-                                            <tr key={ sale.id }>
-                                                <td>{ sale.salesperson.name }</td>
-                                                <td>{ sale.salesperson.employee_number }</td>
-                                                <td>{ sale.customer.name }</td>
-                                                <td>{ sale.automobile.vin }</td>
-                                                <td>${ sale.sale_price.toLocaleString() }</td>
+                                            <tr key={ saleRecord.id }>
+                                                <td>{ saleRecord.salesperson.name }</td>
+                                                <td>{ saleRecord.salesperson.employee_number }</td>
+                                                <td>{ saleRecord.customer.name }</td>
+                                                <td>{ saleRecord.automobile.vin }</td>
+                                                <td>${ saleRecord.sale_price.toLocaleString() }</td>
                                             </tr>
-                                        )
+                                        );
                                     })}
                                 </tbody>
                             </table>
