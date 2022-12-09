@@ -22,6 +22,23 @@ function Nav() {
                 <NavLink className="dropdown-item" to="/manufacturers/new/">Create a Manufacturer</NavLink>
               </div>
             </li>
+            <li className='nav-item dropdown'>
+              <a className='nav-link dropdown-toggle active' href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Vehicle Models
+              </a>
+              <div className='dropdown-menu'>
+                <NavLink className="dropdown-item" to="/models/">List of Vehicle Models</NavLink>
+                <NavLink className="dropdown-item" to="/models/new/">Create a Vehicle Model</NavLink>
+              </div>
+            </li>
+            <li className='nav-item dropdown'>
+              <a className='nav-link dropdodwn-toggle active' href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Services
+              </a>
+              <div className='dropdown-menu'>
+                <NavLink className="dropdown-item" to="/technicians/new/">Enter a Technician</NavLink>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
