@@ -8,7 +8,6 @@ export default function ManufacturerList(props) {
 
         if (response.ok) {
             const listManufacturers = await response.json();
-            console.log(listManufacturers)
             setManufacturers(listManufacturers.manufacturers);
         }
     }
