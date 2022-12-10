@@ -15,43 +15,36 @@ function Nav() {
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Manufacturers
+                Inventory
               </a>
               <div className="dropdown-menu">
                 <NavLink className="dropdown-item" to="/manufacturers/">List of Manufacturers</NavLink>
                 <NavLink className="dropdown-item" to="/manufacturers/new/">Create a Manufacturer</NavLink>
+                <NavLink className="dropdown-item" to="/models/">List of Vehicle Models</NavLink>
+                <NavLink className="dropdown-item" to="/models/new/">Create a Vehicle Model</NavLink>
+                <NavLink className="dropdown-item" to="/automobiles/">List of Automobiles</NavLink>
+                <NavLink className="dropdown-item" to="/automobiles/new/">Create an Automobile</NavLink>
               </div>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Automobiles
+                Services
               </a>
               <div className="dropdown-menu">
-                <NavLink className="dropdown-item" to="/automobiles/">List of Automobiles</NavLink>
+                <NavLink className="dropdown-item" to="/technicians/new/">Enter a Technician</NavLink>
+                <NavLink className="dropdown-item" to="/appointments/new/">Create a Service Appointment</NavLink>
+                <NavLink className="dropdown-item" to="/appointments/">List of Appointments</NavLink>
+                <NavLink className="dropdown-item" to="/history">Service History</NavLink>
               </div>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Salespersons
+                Sales
               </a>
               <div className="dropdown-menu">
                 <NavLink className="dropdown-item" to="/salespersons/">Sales History</NavLink>
                 <NavLink className="dropdown-item" to="/salespersons/new/">Add a Salesperson</NavLink>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Customers
-              </a>
-              <div className="dropdown-menu">
                 <NavLink className="dropdown-item" to="/customers/new/">Add a Customer</NavLink>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sales Records
-              </a>
-              <div className="dropdown-menu">
                 <NavLink className="dropdown-item" to="/saleshistory/">All Sales</NavLink>
                 <NavLink className="dropdown-item" to="/saleshistory/new/">Record a New Sale</NavLink>
               </div>
@@ -60,7 +53,7 @@ function Nav() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 export default Nav;
