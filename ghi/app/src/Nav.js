@@ -32,11 +32,14 @@ function Nav() {
               </div>
             </li>
             <li className='nav-item dropdown'>
-              <a className='nav-link dropdodwn-toggle active' href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a className='nav-link dropdown-toggle active' href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Services
               </a>
               <div className='dropdown-menu'>
                 <NavLink className="dropdown-item" to="/technicians/new/">Enter a Technician</NavLink>
+                <NavLink className="dropdown-item" to="/appointments/new/">Create a Service Appointment</NavLink>
+                <NavLink className="dropdown-item" to="/appointments/">List of Appointments</NavLink>
+                <NavLink className="dropdown-item" to="/history">Service History</NavLink>
               </div>
             </li>
           </ul>

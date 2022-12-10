@@ -8,7 +8,7 @@ from .models import ServiceAppointment, Technician, AutomobileVO
 
 class AutomobileVODetailEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin"]
+    properties = ["vin", "import_href", "sale_status"]
 
 
 class TechnicianDetailEncoder(ModelEncoder):
@@ -24,12 +24,11 @@ class ServiceAppointmentListEncoder(ModelEncoder):
         "technician",
         "reason",
         "date_time",
-        "automobile",
         "vip_status",
+        "vin",
         "completed",
     ]
     encoders = {
-        "automobile": AutomobileVODetailEncoder(),
         "technician": TechnicianDetailEncoder(),
     }
 
@@ -86,46 +85,63 @@ def api_show_technician(request, pk):
             )
 
 
+class VinInvalid(Exception):
+    pass
+
+
 @require_http_methods(["GET", "POST"])
 def api_list_service_appointments(request, appointments_vo_id=None):
     if request.method == "GET":
-        if appointments_vo_id is not None:
-            appointments = ServiceAppointment.objects.filter(
-                appointments=appointments_vo_id
-            )
-        else:
-            appointments = ServiceAppointment.objects.all()
-
+        appointments = ServiceAppointment.objects.all().order_by("date_time")
         return JsonResponse(
             {"appointments": appointments},
             encoder=ServiceAppointmentListEncoder,
         )
     else:
+        content = json.loads(request.body)
+        vin = content["vin"]
+
         try:
-            content = json.loads(request.body)
-            vin = AutomobileVO.objects.get(vin=content["automobile"])
-            content["automobile"] = vin
-            name = content["technician"]
-            technician = Technician.objects.get(id=name)
+            technician = Technician.objects.get(id=content["technician"])
             content["technician"] = technician
-            appointment = ServiceAppointment.objects.create(**content)
+        except Technician.DoesNotExist:
+            return JsonResponse({"message": "Technician does not exist"}, status=400)
+        try:
+            has_vin = AutomobileVO.objects.get(vin=vin)
+        except AutomobileVO.DoesNotExist:
+            has_vin = None
+
+        if has_vin:
+            content["vip_status"] = True
+        else:
+            content["vip_status"] = False
+
+        appointment = ServiceAppointment.objects.create(**content)
+        return JsonResponse(
+            appointment,
+            encoder=ServiceAppointmentListEncoder,
+            safe=False,
+        )
+
+
+@require_http_methods(["GET", "DELETE", "PUT"])
+def api_show_service_appointment(request, pk):
+    if request.method == "GET":
+        try:
+            appointment = ServiceAppointment.objects.get(id=pk)
             return JsonResponse(
                 appointment,
                 encoder=ServiceAppointmentListEncoder,
                 safe=False,
             )
-
-        except AutomobileVO.DoesNotExist:
+        except ServiceAppointment.DoesNotExist:
             return JsonResponse(
-                {"message": "Appointment could not be created"},
-                status=400,
+                {"message": "The appointment you are looking for does not exist"},
+                status=404,
             )
-
-
-@require_http_methods(["GET", "DELETE"])
-def api_show_service_appointment(request, pk):
-    if request.method == "GET":
+    elif request.method == "PUT":
         try:
+            ServiceAppointment.objects.filter(id=pk).update(completed=True)
             appointment = ServiceAppointment.objects.get(id=pk)
             return JsonResponse(
                 appointment,
@@ -153,4 +169,21 @@ def api_show_service_appointment(request, pk):
             )
 
 
+@require_http_methods(["GET"])
+def api_get_automobilevos(request):
+    if request.method == "GET":
+        automobile = AutomobileVO.objects.all()
+        return JsonResponse(
+            {"autos": automobile},
+            encoder=AutomobileVODetailEncoder,
+        )
+
+@require_http_methods(["GET"])
+def api_list_appointments_vin(request, vin):
+    if request.method == "GET":
+        appointments = ServiceAppointment.objects.filter(vin=vin)
+        return JsonResponse(
+            {"appointments": appointments},
+            encoder=ServiceAppointmentListEncoder,
+    )
 # Create your views here.

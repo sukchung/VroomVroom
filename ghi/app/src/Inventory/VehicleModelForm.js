@@ -47,7 +47,7 @@ class VehicleModelForm extends React.Component {
         delete data.manufacturers
         // delete data.picture_url
         // delete data.manufacturer
-        
+        console.log("DATA", data)
         const modelsUrl = "http://localhost:8100/api/models/";
         const fetchConfig = {
             method: "POST",

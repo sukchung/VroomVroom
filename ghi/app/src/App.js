@@ -7,6 +7,9 @@ import VehicleModelsList from './Inventory/VehicleModelsList';
 import VehicleModelForm from './Inventory/VehicleModelForm';
 import AutomobileForm from './AutomobileForm';
 import TechnicianForm from './Services/TechnicianForm';
+import AppointmentForm from './Services/ServiceAppointmentForm';
+import AppointmentList from './Services/ServiceAppointmentList';
+import ServiceHistory from './Services/ServiceHistory';
 
 function App(props) {
   return (
@@ -28,6 +31,11 @@ function App(props) {
           <Route path="technicians">
             <Route path="new" element={<TechnicianForm />} />
           </Route>
+          <Route path="appointments">
+            <Route path="new" element={<AppointmentForm />} />
+            <Route index element={<AppointmentList serviceAppointments={props.appointments} />} />
+          </Route>
+          <Route path="history" element={<ServiceHistory/>} />
         </Routes>
       </div>
     </BrowserRouter>
