@@ -38,9 +38,9 @@ This starter application comes with fully-functioning microservices using Django
 
 ## Services Microservice
 For this project, three models were created: AutomobileVO, Technician, and ServiceAppointment.
-* The AutomobileVO (value object) model polled the vin from the Automobile model in the Inventory Mircroservice.
+* The AutomobileVO (value object) model polled the vin from the Automobile model in the Inventory Microservice.
 * The Technician model contained name and employee number fields.
-* The ServiceAppointment model contained, date/time, reason, customer name, vip status, vin, and technician (foreign key) fields.
+* The ServiceAppointment model contained date/time, reason, customer name, vip status, vin, completed and technician (foreign key) fields.
 
 ### API Documentation
 
@@ -89,6 +89,7 @@ DELETE | http://localhost:8080/api/appointments/:id/ | Delete service appointmen
             "reason": "Starter issues",
             "vip_status": false,
             "date_time": "2022-12-23 14:30:59"
+            "completed": false
         }
         ```
     * Response
@@ -104,17 +105,10 @@ DELETE | http://localhost:8080/api/appointments/:id/ | Delete service appointmen
             "reason": "Starter issues",
             "date_time": "2022-12-23 14:30:59",
             "vip_status": true,
-            "vin": "1C3CC5FB2AN120198"
+            "vin": "1C3CC5FB2AN120198",
+            "completed": false
         }
         ```
-
-### AutomobileVO RESTful APIs
-
-Methods | URLs | Requests | Ports |
------------- | ------------- | ------------- | ------------- |
-GET | http://localhost:8080/api/services/inventory | Show list of Automobile value objects | 8080 |
-
-###
 
 ## Sales Microservice
 For this project, four models were created: AutomobileVO, SalesPerson, PotentialCustomer, and SalesHistory.
