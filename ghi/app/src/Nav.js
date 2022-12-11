@@ -42,11 +42,11 @@ function Nav() {
                 Sales
               </a>
               <div className="dropdown-menu">
-                <NavLink className="dropdown-item" to="/salespersons/">Sales History</NavLink>
                 <NavLink className="dropdown-item" to="/salespersons/new/">Add a Salesperson</NavLink>
-                <NavLink className="dropdown-item" to="/customers/new/">Add a Customer</NavLink>
-                <NavLink className="dropdown-item" to="/saleshistory/">All Sales</NavLink>
+                <NavLink className="dropdown-item" to="/customers/new/">Add a Potential Customer</NavLink>
                 <NavLink className="dropdown-item" to="/saleshistory/new/">Record a New Sale</NavLink>
+                <NavLink className="dropdown-item" to="/saleshistory/">All Sales</NavLink>
+                <NavLink className="dropdown-item" to="/salespersons/">Salepersons' Sales History</NavLink>
               </div>
             </li>
           </ul>
