@@ -178,6 +178,7 @@ def api_get_automobilevos(request):
             encoder=AutomobileVODetailEncoder,
         )
 
+
 @require_http_methods(["GET"])
 def api_list_appointments_vin(request, vin):
     if request.method == "GET":
@@ -185,5 +186,7 @@ def api_list_appointments_vin(request, vin):
         return JsonResponse(
             {"appointments": appointments},
             encoder=ServiceAppointmentListEncoder,
-    )
+        )
+
+
 # Create your views here.

@@ -27,29 +27,29 @@ class AutomobileForm extends React.Component {
             const data = await response.json();
             this.setState({ models: data.models });
         }
-   }
+    }
 
-   handleColorChange(event) {
+    handleColorChange(event) {
         const value = event.target.value;
         this.setState({ color: value });
-   }
+    }
 
-   handleYearChange(event) {
+    handleYearChange(event) {
         const value = event.target.value;
         this.setState({ year: value });
-   }
+    }
 
     handleVinChange(event) {
         const value = event.target.value;
         this.setState({ vin: value });
-   }
+    }
 
-   handleModelChange(event) {
+    handleModelChange(event) {
         const value = event.target.value;
         this.setState({ model_id: value })
-   }
+    }
 
-   async handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         const data = { ...this.state }
         delete data.models
@@ -75,9 +75,9 @@ class AutomobileForm extends React.Component {
             }
             this.setState(cleared);
         }
-   }
+    }
 
-   render() {
+    render() {
         return (
             <div className="row">
                 <div className="offset-3 col-6">
@@ -97,7 +97,7 @@ class AutomobileForm extends React.Component {
                                 <label htmlFor="year">Year</label>
                             </div>
                             <div className="form-floating mb-3">
-                                 <input onChange={this.handleVinChange} placeholder="Vin" required
+                                <input onChange={this.handleVinChange} placeholder="Vin" required
                                     type="text" name="vin" id="vin" value={this.state.vin}
                                     className="form-control" />
                                 <label htmlFor="vin">Vin</label>
@@ -122,8 +122,8 @@ class AutomobileForm extends React.Component {
                     </div>
                 </div>
             </div>
-    );
-}
+        );
+    }
 }
 
 export default AutomobileForm;
