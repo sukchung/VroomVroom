@@ -8,7 +8,7 @@ Team:
 ## Overview
 
 VroomVroom is an application that manages many aspects of an automobile dealership, such as inventory, services, and sales.
-This starter application comes with fully-functioning microservices using Django, a front-end application using React, and a database.
+This starter application comes with fully-functioning microservices using Django, a front-end application using React/Bootstrap, and a database.
 
 ## Getting Started
 
@@ -44,7 +44,7 @@ For this project, three models were created: AutomobileVO, Technician, and Servi
 
 ### API Documentation
 
-#### Technician RESTful APIs
+#### RESTful APIs: Technician
 
 Methods | URLs | Requests | Ports |
 ------------ | ------------- | ------------- | ------------- |
@@ -69,7 +69,7 @@ DELETE | http://localhost:8080/api/technicians/:id/ | Delete technician | 8080 |
         "employee_number": "9987"
         }
         ```
-#### Service Appointment RESTful APIs
+#### RESTful APIs: Service Appointment
 
 Methods | URLs | Requests | Ports |
 ------------ | ------------- | ------------- | ------------- |
@@ -119,7 +119,7 @@ For this project, four models were created: AutomobileVO, SalesPerson, Potential
 
 ### API Documentation
 
-#### Salesperson RESTful APIs
+#### RESTful APIs: Salesperson
 
 Methods | URLs | Requests | Ports |
 ------------ | ------------- | ------------- | ------------- |
@@ -145,7 +145,7 @@ DELETE | http://localhost:8090/api/salespersons/:id/ | Delete salesperson | 8090
         }
         ```
 
-#### Customer RESTful APIs
+#### RESTful APIs: Customer
 
 Methods | URLs | Requests | Ports |
 ------------ | ------------- | ------------- | ------------- |
@@ -173,7 +173,7 @@ DELETE | http://localhost:8090/api/customers/:id/ | Delete customer | 8090 |
         }
         ```
 
-#### Sales History RESTful APIs
+#### RESTful APIs: Sales History
 
 Methods | URLs | Requests | Ports |
 ------------ | ------------- | ------------- | ------------- |
