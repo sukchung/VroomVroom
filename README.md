@@ -44,7 +44,7 @@ For this project, three models were created: AutomobileVO, Technician, and Servi
 
 ### API Documentation
 
-### Technician RESTful APIs
+#### Technician RESTful APIs
 
 Methods | URLs | Requests | Ports |
 ------------ | ------------- | ------------- | ------------- |
@@ -69,7 +69,7 @@ DELETE | http://localhost:8080/api/technicians/:id/ | Delete technician | 8080 |
         "employee_number": "9987"
         }
         ```
-### Service Appointment RESTful APIs
+#### Service Appointment RESTful APIs
 
 Methods | URLs | Requests | Ports |
 ------------ | ------------- | ------------- | ------------- |
