@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 export default function ModelsList(props) {
     const [models, setModels] = useState([]);
@@ -30,13 +30,16 @@ export default function ModelsList(props) {
     console.log("MODELS", models)
     return (
         <>
+            <br />
+            <div>
+                <h1>Vehicle Models</h1>
+            </div>
             <table className="table table-striped" >
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Manufacturer</th>
                         <th>Picture</th>
-                        <th>Delete Vehicle Model</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +49,6 @@ export default function ModelsList(props) {
                                 <td>{model.name}</td>
                                 <td>{model.manufacturer.name}</td>
                                 <td><img src={model.picture_url} width="300px" /></td>
-                                <td><button className="btn btn-primary" onClick={deleteModel(model.id)}>Delete</button></td>
                             </tr>
                         );
                     })}
