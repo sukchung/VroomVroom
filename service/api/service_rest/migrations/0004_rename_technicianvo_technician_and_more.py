@@ -6,33 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('service_rest', '0003_alter_serviceappointment_automobile_and_more'),
+        ("service_rest", "0003_alter_serviceappointment_automobile_and_more"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='TechnicianVO',
-            new_name='Technician',
+            old_name="TechnicianVO",
+            new_name="Technician",
         ),
         migrations.RemoveField(
-            model_name='automobilevo',
-            name='vip_status',
+            model_name="automobilevo",
+            name="vip_status",
         ),
         migrations.RemoveField(
-            model_name='serviceappointment',
-            name='customer',
+            model_name="serviceappointment",
+            name="customer",
         ),
         migrations.AddField(
-            model_name='serviceappointment',
-            name='customer_name',
+            model_name="serviceappointment",
+            name="customer_name",
             field=models.CharField(max_length=200, null=True),
         ),
         migrations.AddField(
-            model_name='serviceappointment',
-            name='vip_status',
+            model_name="serviceappointment",
+            name="vip_status",
             field=models.BooleanField(default=False),
         ),
         migrations.DeleteModel(
-            name='CustomerVO',
+            name="CustomerVO",
         ),
     ]

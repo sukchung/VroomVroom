@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('service_rest', '0011_remove_serviceappointment_status'),
+        ("service_rest", "0011_remove_serviceappointment_status"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='serviceappointment',
-            name='completed',
+            model_name="serviceappointment",
+            name="completed",
             field=models.BooleanField(default=False, null=True),
         ),
     ]

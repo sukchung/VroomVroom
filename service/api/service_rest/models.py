@@ -30,8 +30,6 @@ class ServiceAppointment(models.Model):
         Technician, related_name="technician", on_delete=models.CASCADE
     )
 
-
-
     def __str__(self):
         return f"{self.vin}-{self.customer_name}"
 

@@ -7,13 +7,21 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('service_rest', '0005_remove_serviceappointment_appointment_date_time_and_more'),
+        (
+            "service_rest",
+            "0005_remove_serviceappointment_appointment_date_time_and_more",
+        ),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='serviceappointment',
-            name='automobile',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='automobile', to='service_rest.automobilevo'),
+            model_name="serviceappointment",
+            name="automobile",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="automobile",
+                to="service_rest.automobilevo",
+            ),
         ),
     ]

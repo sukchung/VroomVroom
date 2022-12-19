@@ -8,43 +8,98 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AutomobileVO',
+            name="AutomobileVO",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('vin', models.CharField(max_length=17, unique=True)),
-                ('vip_status', models.CharField(max_length=25, null=True)),
-                ('import_href', models.CharField(max_length=200, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("vin", models.CharField(max_length=17, unique=True)),
+                ("vip_status", models.CharField(max_length=25, null=True)),
+                ("import_href", models.CharField(max_length=200, unique=True)),
             ],
         ),
         migrations.CreateModel(
-            name='CustomerVO',
+            name="CustomerVO",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='TechnicianVO',
+            name="TechnicianVO",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('employee_number', models.PositiveIntegerField(max_length=10, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                (
+                    "employee_number",
+                    models.PositiveIntegerField(max_length=10, unique=True),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ServiceAppointment',
+            name="ServiceAppointment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('appointment_date_time', models.DateTimeField(null=True)),
-                ('reason', models.CharField(max_length=200)),
-                ('automobile', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='services', to='service_rest.automobilevo')),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='services', to='service_rest.customervo')),
-                ('technician', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='services', to='service_rest.technicianvo')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("appointment_date_time", models.DateTimeField(null=True)),
+                ("reason", models.CharField(max_length=200)),
+                (
+                    "automobile",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="services",
+                        to="service_rest.automobilevo",
+                    ),
+                ),
+                (
+                    "customer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="services",
+                        to="service_rest.customervo",
+                    ),
+                ),
+                (
+                    "technician",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="services",
+                        to="service_rest.technicianvo",
+                    ),
+                ),
             ],
         ),
     ]
