@@ -54,7 +54,7 @@ def api_list_salespersons(request):
         salespersons = SalesPerson.objects.all()
         return JsonResponse(
             {"salespersons": salespersons},
-            encoder = SalesPersonEncoder,
+            encoder=SalesPersonEncoder,
         )
     else:
         try:
@@ -201,7 +201,9 @@ def api_show_sales_history(request, pk):
             )
         except SalesHistory.DoesNotExist:
             return JsonResponse(
-                {"message": "The sales history that you are looking for does not exist"},
+                {
+                    "message": "The sales history that you are looking for does not exist"
+                },
                 status=404,
             )
     else:
@@ -215,6 +217,8 @@ def api_show_sales_history(request, pk):
             )
         except SalesHistory.DoesNotExist:
             return JsonResponse(
-                {"message": "The sales history that you are looking for does not exist"},
+                {
+                    "message": "The sales history that you are looking for does not exist"
+                },
                 status=404,
             )
