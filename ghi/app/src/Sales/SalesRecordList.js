@@ -16,14 +16,14 @@ export default function SalesRecordList(props) {
     return (
         <>
             <br />
-            <div>
+            <div className="white-text">
                 <h1>Sales Records</h1>
             </div>
-            <table className="table table-striped">
+            <table className="table table-hover white-text">
                 <thead>
                     <tr>
                         <th>Salesperson</th>
-                        <th>Employee Number</th>
+                        <th>Salesperson ID</th>
                         <th>Customer</th>
                         <th>VIN</th>
                         <th>Sale Price</th>

@@ -2,7 +2,7 @@ import React from "react";
 
 class SalesRecordForm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             automobile: "",
             salesperson: "",
@@ -21,7 +21,7 @@ class SalesRecordForm extends React.Component {
         const salesPersonUrl = "http://localhost:8090/api/salespersons/";
         const customerUrl = "http://localhost:8090/api/customers/";
         const soldAutoUrl = "http://localhost:8090/api/saleshistory";
-        
+
         const automobileResponse = await fetch(automobileUrl);
         const salesPersonResponse = await fetch(salesPersonUrl);
         const customerResponse = await fetch(customerUrl);
@@ -91,7 +91,7 @@ class SalesRecordForm extends React.Component {
         return (
             <div className="row">
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
+                    <div className="shadow-lg p-3 mb-5 bg-body rounded">
                         <h1>Record a new sale</h1>
                         <form onSubmit={this.handleSubmit} id="create-sales-history-form">
                             <div className="mb-3">
@@ -142,7 +142,7 @@ class SalesRecordForm extends React.Component {
                                     className="form-control" />
                                 <label htmlFor="sale_price">Sale Price</label>
                             </div>
-                            <button className="btn btn-primary">Create</button>
+                            <button className="btn btn-dark">Create</button>
                         </form>
                     </div>
                 </div>

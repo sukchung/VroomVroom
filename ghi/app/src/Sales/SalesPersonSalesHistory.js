@@ -2,7 +2,7 @@ import React from "react";
 
 class SalesPersonSalesHistory extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             salespersons: [],
             sales_history: [],
@@ -57,7 +57,7 @@ class SalesPersonSalesHistory extends React.Component {
         return (
             <div className="row">
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
+                    <div className="shadow p-4 mt-4 white-text">
                         <h1>Salesperson History</h1>
                         <div className="mb-3">
                             <select onChange={this.handleSalesPersonChange} required name="salesperson"
@@ -74,11 +74,11 @@ class SalesPersonSalesHistory extends React.Component {
                             </select>
                         </div>
                         <div>
-                            <table className="table table-striped">
+                            <table className="table table-hover white-text">
                                 <thead>
                                     <tr>
                                         <th>Salesperson</th>
-                                        <th>Employee ID</th>
+                                        <th>Salesperson ID</th>
                                         <th>Customer</th>
                                         <th>VIN</th>
                                         <th>Sale Price</th>

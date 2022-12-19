@@ -2,7 +2,7 @@ import React from "react";
 
 class PotentialCustomerForm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             name: "",
             address: "",
@@ -58,7 +58,7 @@ class PotentialCustomerForm extends React.Component {
         return (
             <div className="row">
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
+                    <div className="shadow-lg p-3 mb-5 bg-body rounded">
                         <h1>Add a potential customer</h1>
                         <form onSubmit={this.handleSubmit} id="create-customer-form">
                             <div className="form-floating mb-3">
@@ -79,7 +79,7 @@ class PotentialCustomerForm extends React.Component {
                                     className="form-control" />
                                 <label htmlFor="phone_number">Phone Number</label>
                             </div>
-                            <button className="btn btn-primary">Create</button>
+                            <button className="btn btn-dark">Create</button>
                         </form>
                     </div>
                 </div>

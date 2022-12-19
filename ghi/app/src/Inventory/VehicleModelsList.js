@@ -8,7 +8,6 @@ export default function ModelsList(props) {
 
         if (response.ok) {
             const listModels = await response.json();
-            console.log("VEHICLEMODELS", listModels)
             setModels(listModels.models);
         }
     }
@@ -22,19 +21,19 @@ export default function ModelsList(props) {
             if (deleteResponse.ok) {
                 const reloadResponse = await fetch("http://localhost:8100/api/models/");
                 const newModels = await reloadResponse.json();
-                setModels(newModels.models)
+                setModels(newModels.models);
             }
         }
         catch (e) { }
     }
-    console.log("MODELS", models)
+
     return (
         <>
             <br />
-            <div>
+            <div className="white-text">
                 <h1>Vehicle Models</h1>
             </div>
-            <table className="table table-striped" >
+            <table className="table table-hover white-text">
                 <thead>
                     <tr>
                         <th>Name</th>

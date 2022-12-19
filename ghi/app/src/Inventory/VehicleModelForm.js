@@ -2,7 +2,7 @@ import React from "react";
 
 class VehicleModelForm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             name: '',
             manufacturers: [],
@@ -13,7 +13,6 @@ class VehicleModelForm extends React.Component {
         this.handleManufacturerChange = this.handleManufacturerChange.bind(this);
         this.handlePictureChange = this.handlePictureChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     async componentDidMount() {
@@ -33,50 +32,46 @@ class VehicleModelForm extends React.Component {
 
     handleManufacturerChange(event) {
         const value = event.target.value;
-        this.setState({ manufacturer_id: value })
+        this.setState({ manufacturer_id: value });
     }
 
     handlePictureChange(event) {
         const value = event.target.value;
-        this.setState({ picture_url: value })
+        this.setState({ picture_url: value });
     }
 
     async handleSubmit(event) {
         event.preventDefault();
         const data = { ...this.state }
-        delete data.manufacturers
-        // delete data.picture_url
-        // delete data.manufacturer
-        console.log("DATA", data)
+        delete data.manufacturers;
+
         const modelsUrl = "http://localhost:8100/api/models/";
         const fetchConfig = {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
         }
         const response = await fetch(modelsUrl, fetchConfig);
         if (response.ok) {
             const newModel = await response.json();
-            console.log(newModel);
 
             const cleared = {
                 name: '',
                 manufacturer_id: '',
-                // manufacturers: [],
+                manufacturers: [],
                 picture_url: '',
             }
             this.setState(cleared);
         }
-
     }
 
     render() {
         return (
             <div className="row">
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
+                    <div className="shadow-lg p-3 mb-5 bg-body rounded">
                         <h1>Create a Vehicle Model</h1>
                         <form onSubmit={this.handleSubmit} id="create-model-form">
                             <div className="form-floating mb-3">
@@ -97,7 +92,6 @@ class VehicleModelForm extends React.Component {
                                     className="form-select">
                                     <option value="">Choose a manufacturer</option>
                                     {this.state.manufacturers.map(manufacturer => {
-                                        console.log(manufacturer);
                                         return (
                                             <option key={manufacturer.id} value={manufacturer.id}>
                                                 {manufacturer.name}
@@ -106,7 +100,7 @@ class VehicleModelForm extends React.Component {
                                     })}
                                 </select>
                             </div>
-                            <button className="btn btn-primary">Create</button>
+                            <button className="btn btn-dark">Create</button>
                         </form>
                     </div>
                 </div>

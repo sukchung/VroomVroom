@@ -16,10 +16,10 @@ export default function AutomobileList(props) {
     return (
         <>
             <br />
-            <div>
+            <div className="white-text">
                 <h1>Automobiles</h1>
             </div>
-            <table className="table table-striped">
+            <table className="table table-hover white-text">
                 <thead>
                     <tr>
                         <th>VIN</th>

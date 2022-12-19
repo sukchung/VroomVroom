@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from './MainPage';
+import "./index.css";
+
 import Nav from './Nav';
+import MainPage from './MainPage';
+import Footer from './Footer';
 import ManufacturerForm from './Inventory/ManufacturerForm';
 import ManufacturerList from './Inventory/ManufacturerList';
 import AutomobileForm from './Inventory/AutomobileForm';
@@ -17,7 +20,7 @@ import PotentialCustomerForm from './Sales/PotentialCustomerForm';
 import SalesRecordForm from './Sales/SalesRecordForm';
 import SalesRecordList from './Sales/SalesRecordList';
 
-function App(props) {
+export default function App(props) {
   return (
     <BrowserRouter>
       <Nav />
@@ -57,8 +60,7 @@ function App(props) {
           </Route>
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }
-
-export default App;
