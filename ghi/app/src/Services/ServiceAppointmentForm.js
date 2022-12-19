@@ -2,7 +2,7 @@ import React from "react";
 
 class AppointmentForm extends React.Component{
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             vin: '',
             customer_name: '',
@@ -19,11 +19,10 @@ class AppointmentForm extends React.Component{
         this.handleVipChange = this.handleVipChange.bind(this);
         this.handleTechnicianChange = this.handleTechnicianChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     async componentDidMount() {
-        const url = 'http://localhost:8080/api/technicians/'
+        const url = 'http://localhost:8080/api/technicians/';
         const response = await fetch(url);
 
         if (response.ok) {
@@ -65,20 +64,19 @@ class AppointmentForm extends React.Component{
     async handleSubmit(event) {
         event.preventDefault();
         const data = { ...this.state }
-        delete data.technicians
+        delete data.technicians;
 
         const servicesUrl = "http://localhost:8080/api/appointments/";
         const fetchConfig = {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
         }
         const response = await fetch(servicesUrl, fetchConfig);
         if (response.ok) {
             const newAppointment = await response.json();
-            console.log(newAppointment);
 
             const cleared = {
                 vin: '',
@@ -87,7 +85,6 @@ class AppointmentForm extends React.Component{
                 reason: '',
                 vip_status: '',
                 technician: '',
-
             }
             this.setState(cleared);
         }
@@ -97,7 +94,7 @@ class AppointmentForm extends React.Component{
         return (
             <div className="row">
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
+                    <div className="shadow-lg p-3 mb-5 bg-body rounded">
                         <h1>Create a Service Appointment</h1>
                         <form onSubmit={this.handleSubmit} id="create-model-form">
                             <div className="form-floating mb-3">
@@ -130,7 +127,6 @@ class AppointmentForm extends React.Component{
                                     className="form-select">
                                     <option value="">Choose a technician</option>
                                     {this.state.technicians.map(technician => {
-                                        console.log(technician);
                                         return (
                                             <option key={technician.id} value={technician.id}>
                                                 {technician.name}
@@ -139,12 +135,11 @@ class AppointmentForm extends React.Component{
                                     })}
                                 </select>
                             </div>
-                            <button className="btn btn-primary">Create</button>
+                            <button className="btn btn-dark">Create</button>
                         </form>
                     </div>
                 </div>
             </div>
-
         );
     }
 }

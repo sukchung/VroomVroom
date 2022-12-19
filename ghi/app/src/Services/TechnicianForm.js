@@ -2,7 +2,7 @@ import React from "react";
 
 class TechnicianForm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             name: '',
             employee_number: '',
@@ -10,7 +10,6 @@ class TechnicianForm extends React.Component {
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleEmployeeNumberChange = this.handleEmployeeNumberChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     handleNameChange(event) {
@@ -38,7 +37,6 @@ class TechnicianForm extends React.Component {
         const response = await fetch(technicianUrl, fetchConfig);
         if (response.ok) {
             const newTechnician = await response.json();
-            console.log(newTechnician)
 
             const cleared = {
                 name: '',
@@ -46,14 +44,13 @@ class TechnicianForm extends React.Component {
             }
             this.setState(cleared);
         }
-
     }
 
     render() {
         return (
             <div className="row">
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
+                    <div className="shadow-lg p-3 mb-5 bg-body rounded">
                         <h1>Enter a technician</h1>
                         <form onSubmit={this.handleSubmit} id="create-technician-form">
                             <div className="form-floating mb-3">
@@ -68,7 +65,7 @@ class TechnicianForm extends React.Component {
                                     className="form-control" />
                                 <label htmlFor="name">Employee number</label>
                             </div>
-                            <button className="btn btn-primary">Create Technician</button>
+                            <button className="btn btn-dark">Create Technician</button>
                         </form>
                     </div>
                 </div>
