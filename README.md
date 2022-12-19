@@ -38,9 +38,9 @@ This starter application comes with fully-functioning microservices using Django
 
 ## Services Microservice
 For this project, three models were created: AutomobileVO, Technician, and ServiceAppointment.
-* The AutomobileVO (value object) model polled the vin from the Automobile model in the Inventory Microservice.
+* The AutomobileVO (value object) model polled the VIN from the Automobile model in the Inventory Microservice.
 * The Technician model contained name and employee number fields.
-* The ServiceAppointment model contained date/time, reason, customer name, vip status, vin, completed and technician (foreign key) fields.
+* The ServiceAppointment model contained date/time, reason, customer name, VIP status, VIN, completed, and technician (foreign key) fields.
 
 ### API Documentation
 
@@ -75,7 +75,7 @@ Methods | URLs | Requests | Ports |
 ------------ | ------------- | ------------- | ------------- |
 GET | http://localhost:8080/api/appointments/ | Show list of service appointments | 8080 |
 GET | http://localhost:8080/api/appointments/:id/ | Show service appointment details | 8080 |
-GET | http://localhost:8080/api/history/vin | Show service appointment history by vin | 8080 |
+GET | http://localhost:8080/api/history/vin | Show service appointment history by VIN | 8080 |
 POST | http://localhost:8080/api/appointments/ | Create service appointment | 8080 |
 DELETE | http://localhost:8080/api/appointments/:id/ | Delete service appointment | 8080 |
 
@@ -112,7 +112,7 @@ DELETE | http://localhost:8080/api/appointments/:id/ | Delete service appointmen
 
 ## Sales Microservice
 For this project, four models were created: AutomobileVO, SalesPerson, PotentialCustomer, and SalesHistory.
-* The AutomobileVO (value object) model polled the vin from the Automobile model in Inventory Microservice.
+* The AutomobileVO (value object) model polled the VIN from the Automobile model in Inventory Microservice.
 * The SalesPerson model contained name and employee number fields.
 * The PotentialCustomer model contained name, address, and phone number fields.
 * The SalesHistory model contained sale price, salesperson (foreign key), customer (foreign key), and automobile (foreign key) fields.
